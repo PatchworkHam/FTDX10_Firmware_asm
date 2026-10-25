@@ -1,0 +1,64 @@
+{
+  "format": "ftdx10-rig-profiles",
+  "version": 1,
+  "profiles": [
+    {
+      "id": "ftdx10",
+      "name": "Yaesu FTDX10 (MAIN V01-15)",
+      "cat_id": "0761",
+      "notes": "本仓库静态逆向目标。魔术串与证据见本文件的 magic_evidence。",
+      "status": "固件静态确认 / 真机未验证",
+      "ve_magic": "RAH076H",
+      "ve_full": "VERAH076H",
+      "jp_prefix": "JP0010",
+      "jp_magic": "1234EDCB",
+      "zz_prefix": "PE0010",
+      "magic_status": "固件静态确认 / 真机未验证",
+      "magic_evidence": "FTDX10 MAIN V01-15：VE 在 0x2D4E8 逐字节比较 RAH076H；ZZ 在 0x27DEE 校验 PE0010；JP 在 0x27F3A 校验 0010；JP 写值 v^w=0xFFFF（1234EDCB 只是示例，未真机验证）。"
+    },
+    {
+      "id": "ft891",
+      "name": "Yaesu FT-891",
+      "cat_id": "0650",
+      "notes": "魔术串来自 AH065_M_V0110（2021-09-27）静态分析。其余 E0/E8 长度、服务表/功率地址与 FTDX10 不同，本 GUI 尚未按 FT-891 全量适配。",
+      "status": "魔术串静态确认 / 其它功能未验证",
+      "ve_magic": "RAH065H",
+      "ve_full": "VERAH065H",
+      "jp_prefix": "JP0891",
+      "jp_magic": "",
+      "zz_prefix": "PE0891",
+      "magic_status": "固件静态确认 / 真机未验证（VE/JP/ZZ）",
+      "magic_evidence": "FT-891 AH065_M_V0110（2021-09-27）：VE 在 0x1D642 逐字节比较 R A H 0 6 5 H；JP 在 0x19728 比较 0 8 9 1；ZZ 在 0x1968A 比较 P E 0 8 9 1。研究目录：/home/x3/下载/FT-891_Firmware_Update_2022_12_JP；JP 写入值尚未解码，留空等待手动输入/实机验证。"
+    }
+  ],
+  "fram_regions_zh": {
+    "reserved": "保留 / 未分配（不要随意写）",
+    "magic": "启动魔数（boot validation，勿改）",
+    "config pair": "配置字节对：TS / PWR / EXP / AUX（0x0006–0x0007）",
+    "init flag": "初始化标志",
+    "settings version": "设置版本 / 兼容性检查",
+    "internal settings (371B)": "内部设置/校准表（294 项服务菜单 + 共享区）",
+    "factory / destination params": "工厂 / 目标地区参数",
+    "user settings (400B)": "用户设置块（400B，ALL RESET 会重写）",
+    "message memory 5x152B": "消息存储（5×152B）",
+    "message bank 5x52B (CW)": "CW 消息库（5×52B）",
+    "message bank 5x50B (RTTY/PSK)": "RTTY/PSK 消息库（5×50B）",
+    "message bank 5x50B (PSK/RTTY)": "PSK/RTTY 消息库（5×50B）",
+    "circular log 100x4B": "环形日志（100×4B）",
+    "band stack 6x13x90B": "频段堆栈（6×13×90B）",
+    "band-stack control": "频段堆栈控制",
+    "per-band VFO snapshots 12x90B": "各频段 VFO 快照（12×90B）",
+    "VFO-A current state 90B": "VFO-A 当前状态（90B）",
+    "VFO-B current state 90B": "VFO-B 当前状态（90B）",
+    "memory/band control 34B (2+16+16)": "存储/频段控制（34B）",
+    "memory channels 117x90B": "存储信道（117×90B）",
+    "5MHz presets 13x90B": "5 MHz 预设（13×90B）",
+    "5MHz special VFO 1x90B": "5 MHz 专用 VFO（1×90B）",
+    "per-band aux 13x4B": "每频段辅助表（13×4B）",
+    "per-band aux 13x6B": "每频段辅助表（13×6B）",
+    "unused": "未使用 / 未分配"
+  },
+  "pe_labels": {
+    "note": "PE 的 27 组选择子映射到 0xFFABD1–0xFFABE2；具体位域尚未完全解码，GUI 只显示原始回包并按 PE<3选><符号><2hex> 写入。"
+  }
+}

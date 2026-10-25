@@ -1,0 +1,247 @@
+call_addr,primitive,access,base,size,ram_ptr,base_resolution,size_resolution,ram_resolution,region,evidence
+0x13C6,0xA4A8,read,0x0009,1,,immediate,fixed,n/a,settings version,"r1<-mov.w #0x9,r1"
+0x13E2,0xA528,write,0x0009,1,,immediate,fixed,n/a,settings version,"r1<-mov.w #0x9,r1"
+0x7E3C,0xA4E2,block_read,0x000A,371,,immediate,immediate,computed,internal settings (371B),"r1<-mov.w #0xa,r1; r2<-mov.w #0x173,r2; er3<-wrapped value: mov.l #0xffa948,er3"
+0x7E56,0xA4E2,block_read,0x277E,13,,immediate,immediate,computed,band-stack control,"r1<-mov.w #0x277e,r1; r2<-mov.w #0xd,r2; er3<-wrapped value: mov.l #0xffac4c,er3"
+0x7E6C,0xA4E2,block_read,0x0A80,402,,immediate,immediate,computed,circular log 100x4B,"r1<-mov.w #0xa80,r1; r2<-mov.w #0x192,r2; er3<-wrapped value: mov.l #0xff96ee,er3"
+0x7E88,0xA4E2,block_read,0x2C77,33,,immediate,immediate,computed,memory/band control 34B (2+16+16),"r1<-mov.w #0x2c77,r1; r2<-mov.w #0x21,r2; er3<-wrapped value: mov.l #0xffac5d,er3"
+0x7EFA,0xA5C2,block_write,0x000A,371,0x00007F00,immediate,immediate,immediate,internal settings (371B),"r1<-mov.w #0xa,r1; r2<-mov.w #0x173,r2; er3<-mov.l #0x7f00,er3"
+0x8082,0xA5C2,block_write,0x0300,400,0x000082A6,immediate,immediate,immediate,user settings (400B),"r1<-mov.w #0x300,r1; r2<-mov.w #0x190,r2; er3<-mov.l #0x82a6,er3"
+0x80DE,0xA528,write,0x040F,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x40f,r1"
+0x8106,0xA528,write,0x03FE,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x3fe,r1"
+0x823E,0xA528,write,0x046A,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x46a,r1"
+0x824C,0xA528,write,0x046B,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x46b,r1"
+0x825A,0xA528,write,0x046C,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x46c,r1"
+0x8268,0xA528,write,0x046D,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x46d,r1"
+0x8276,0xA528,write,0x0335,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x335,r1"
+0x8284,0xA528,write,0x0336,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x336,r1"
+0x8292,0xA528,write,0x0337,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x337,r1"
+0x82A0,0xA528,write,0x0338,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x338,r1"
+0x846C,0xA528,write,0x277E,1,,immediate,fixed,n/a,band-stack control,"r1<-mov.w #0x277e,r1"
+0x8472,0xA528,write,0x277F,1,,immediate,fixed,n/a,band-stack control,"r1<-mov.w #0x277e,r1 (+0x1)"
+0x847C,0xA528,write,0x2780,1,,immediate,fixed,n/a,band-stack control,"r1<-mov.w #0x2780,r1"
+0x8486,0xA528,write,0x2781,1,,immediate,fixed,n/a,band-stack control,"r1<-mov.w #0x2781,r1"
+0x848C,0xA528,write,0x2782,1,,immediate,fixed,n/a,band-stack control,"r1<-mov.w #0x2781,r1 (+0x1)"
+0x8492,0xA528,write,0x2783,1,,immediate,fixed,n/a,band-stack control,"r1<-mov.w #0x2781,r1 (+0x2)"
+0x8498,0xA528,write,0x2784,1,,immediate,fixed,n/a,band-stack control,"r1<-mov.w #0x2781,r1 (+0x3)"
+0x849E,0xA528,write,0x2785,1,,immediate,fixed,n/a,band-stack control,"r1<-mov.w #0x2781,r1 (+0x4)"
+0x84A4,0xA528,write,0x2786,1,,immediate,fixed,n/a,band-stack control,"r1<-mov.w #0x2781,r1 (+0x5)"
+0x84AA,0xA528,write,0x2787,1,,immediate,fixed,n/a,band-stack control,"r1<-mov.w #0x2781,r1 (+0x6)"
+0x84B0,0xA528,write,0x2788,1,,immediate,fixed,n/a,band-stack control,"r1<-mov.w #0x2781,r1 (+0x7)"
+0x84B6,0xA528,write,0x2789,1,,immediate,fixed,n/a,band-stack control,"r1<-mov.w #0x2781,r1 (+0x8)"
+0x84BC,0xA528,write,0x278A,1,,immediate,fixed,n/a,band-stack control,"r1<-mov.w #0x2781,r1 (+0x9)"
+0x84E8,0xA528,write,0x2C77,1,,immediate,fixed,n/a,memory/band control 34B (2+16+16),"r1<-mov.w #0x2c77,r1"
+0x84F2,0xA528,write,0x2C78,1,,immediate,fixed,n/a,memory/band control 34B (2+16+16),"r1<-mov.w #0x2c78,r1"
+0x84FC,0xA528,write,0x2C79,1,,immediate,fixed,n/a,memory/band control 34B (2+16+16),"r1<-mov.w #0x2c79,r1"
+0x8504,0xA528,write,0x2C7A,1,,immediate,fixed,n/a,memory/band control 34B (2+16+16),"r1<-mov.w #0x2c79,r1 (+0x1)"
+0x8512,0xA528,write,0x2C89,1,,immediate,fixed,n/a,memory/band control 34B (2+16+16),"r1<-mov.w #0x2c89,r1"
+0x851A,0xA528,write,0x2C8A,1,,immediate,fixed,n/a,memory/band control 34B (2+16+16),"r1<-mov.w #0x2c89,r1 (+0x1)"
+0x8582,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter
+0x8588,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x1)
+0x858E,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x2)
+0x8594,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x3)
+0x859A,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x4)
+0x85A0,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x5)
+0x85A6,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x6)
+0x85AC,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x7)
+0x85B2,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x8)
+0x85B8,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x9)
+0x85C8,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0xA)
+0x85CE,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0xB)
+0x85D4,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0xC)
+0x85DA,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0xD)
+0x85E0,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0xE)
+0x85E6,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0xF)
+0x85EC,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x10)
+0x85F2,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x11)
+0x85F8,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x12)
+0x85FE,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x13)
+0x8604,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x14)
+0x860A,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x15)
+0x8610,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x16)
+0x8616,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x17)
+0x861C,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x18)
+0x8622,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x19)
+0x8628,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x1A)
+0x862E,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x1B)
+0x8634,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x1C)
+0x863A,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x1D)
+0x8640,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x1E)
+0x8646,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x1F)
+0x864C,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x20)
+0x8652,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x21)
+0x8658,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x22)
+0x865E,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x23)
+0x8664,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x24)
+0x866A,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x25)
+0x8670,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x26)
+0x8676,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x27)
+0x867C,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x28)
+0x8682,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x29)
+0x8688,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x2A)
+0x868E,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x2B)
+0x8694,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x2C)
+0x869A,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x2D)
+0x86A0,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x2E)
+0x86A6,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x2F)
+0x86AC,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x30)
+0x86B2,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x31)
+0x86B8,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x32)
+0x86BE,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x33)
+0x86C4,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x34)
+0x86CA,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x35)
+0x86D0,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x36)
+0x86D6,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x37)
+0x86DC,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x38)
+0x86E2,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x39)
+0x86E8,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x3A)
+0x86EE,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x3B)
+0x86F4,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x3B)
+0x86FA,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x3B)
+0x8700,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x3B)
+0x8706,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x3B)
+0x870C,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x3B)
+0x8712,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x3B)
+0x8718,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x3B)
+0x871E,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x3B)
+0x8724,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x3B)
+0x872A,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x3B)
+0x8740,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter
+0x8746,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x1)
+0x874C,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x2)
+0x8752,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x3)
+0x875E,0xA5C2,block_write,,4,,parameter,immediate,unknown,,"r1<-function parameter (+0x4); r2<-mov.w #0x4,r2; er3<-unknown"
+0x8770,0xA5C2,block_write,,12,0x0000882F,parameter,immediate,immediate,,"r1<-function parameter (+0x8); r2<-mov.w #0xc,r2; er3<-mov.l #0x882f,er3"
+0x8A9C,0xA5C2,block_write,0x0490,152,0x00008AA6,immediate,immediate,immediate,message memory 5x152B,"r1<-mov.w #0x490,r1; r2<-mov.w #0x98,r2; er3<-mov.l #0x8aa6,er3"
+0x8B4E,0xA5C2,block_write,0x0788,52,0x00008B66,immediate,immediate,immediate,message bank 5x52B (CW),"r1<-mov.w #0x788,r1; r2<-mov.w #0x34,r2; er3<-mov.l #0x8b66,er3"
+0x8B5C,0xA5C2,block_write,,52,,unknown,immediate,unknown,,"r1<-unknown; r2<-mov.w #0x34,r2; er3<-unknown"
+0x8C16,0xA5C2,block_write,,50,0x00008C2E,unknown,immediate,immediate,,"r1<-unknown; r2<-mov.w #0x32,r2; er3<-mov.l #0x8c2e,er3"
+0x8C24,0xA5C2,block_write,,50,,unknown,immediate,unknown,,"r1<-unknown; r2<-mov.w #0x32,r2; er3<-unknown"
+0x8CCE,0xA528,write,0x0A80,1,,immediate,fixed,n/a,circular log 100x4B,"r1<-mov.w #0xa80,r1"
+0x8CE6,0xA5C2,block_write,0x5AA7,52,0x00008CEC,immediate,immediate,immediate,per-band aux 13x4B,"r1<-mov.w #0x5aa7,r1; r2<-mov.w #0x34,r2; er3<-mov.l #0x8cec,er3"
+0x8D5A,0xA5C2,block_write,,4,,computed,immediate,computed,,"r1<-0x8d4c: add.w #0x5aa7,r1; r2<-mov.w #0x4,r2; er3<-wrapped value: mov.l #0xff98a8,er3"
+0x8D88,0xA4E2,block_read,,4,,computed,immediate,computed,,"r1<-0x8d7a: add.w #0x5aa7,r1; r2<-mov.w #0x4,r2; er3<-wrapped value: mov.l #0xff98a8,er3"
+0x8DAA,0xA4E2,block_read,,5,,computed,immediate,computed,,"r1<-0x8d9c: add.w #0x5adb,r1; r2<-mov.w #0x5,r2; er3<-wrapped value: mov.l #0xff98ac,er3"
+0x8DE8,0xA5C2,block_write,,5,,computed,immediate,computed,,"r1<-0x8dda: add.w #0x5adb,r1; r2<-mov.w #0x5,r2; er3<-wrapped value: mov.l #0xff98ac,er3"
+0x8DFC,0xA5C2,block_write,0x5ADB,78,0x00008E02,immediate,immediate,immediate,per-band aux 13x6B,"r1<-mov.w #0x5adb,r1; r2<-mov.w #0x4e,r2; er3<-mov.l #0x8e02,er3"
+0x8E6E,0xA5C2,block_write,0x03C8,200,0x0000836E,immediate,immediate,immediate,user settings (400B),"r1<-mov.w #0x3c8,r1; r2<-mov.w #0xc8,r2; er3<-mov.l #0x836e,er3"
+0x8E92,0xA528,write,0x0004,1,,immediate,fixed,n/a,magic,"r1<-mov.w #0x4,r1"
+0x8E98,0xA528,write,0x0005,1,,immediate,fixed,n/a,magic,"r1<-mov.w #0x4,r1 (+0x1)"
+0x8EAA,0xA528,write,0x0004,1,,immediate,fixed,n/a,magic,"r1<-mov.w #0x4,r1"
+0x8EB0,0xA528,write,0x0005,1,,immediate,fixed,n/a,magic,"r1<-mov.w #0x4,r1 (+0x1)"
+0x8EC2,0xA4A8,read,0x0004,1,,immediate,fixed,n/a,magic,"r1<-mov.w #0x4,r1"
+0x8EC8,0xA4A8,read,0x0005,1,,immediate,fixed,n/a,magic,"r1<-mov.w #0x4,r1 (+0x1)"
+0x8ED4,0xA4A8,read,,1,,computed,fixed,n/a,,"r1<-0x8ece: mov.w @er7+,r1"
+0x8EDA,0xA4A8,read,,1,,computed,fixed,n/a,,"r1<-0x8ece: mov.w @er7+,r1"
+0x8F02,0xA5C2,block_write,0x000A,371,,immediate,immediate,computed,internal settings (371B),"r1<-mov.w #0xa,r1; r2<-mov.w #0x173,r2; er3<-wrapped value: mov.l #0xffa948,er3"
+0x8F10,0xA4A8,read,0x0006,1,,immediate,fixed,n/a,config pair,"r1<-mov.w #0x6,r1"
+0x8F16,0xA4A8,read,0x0007,1,,immediate,fixed,n/a,config pair,"r1<-mov.w #0x6,r1 (+0x1)"
+0x8F28,0xA528,write,0x0006,1,,immediate,fixed,n/a,config pair,"r1<-mov.w #0x6,r1"
+0x8F32,0xA528,write,0x0007,1,,immediate,fixed,n/a,config pair,"r1<-mov.w #0x6,r1 (+0x1)"
+0x8F3C,0xA4A8,read,0x0008,1,,immediate,fixed,n/a,init flag,"r1<-mov.w #0x8,r1"
+0x8F4A,0xA4A8,read,0x0008,1,,immediate,fixed,n/a,init flag,"r1<-mov.w #0x8,r1"
+0x8F64,0xA528,write,0x0008,1,,immediate,fixed,n/a,init flag,"r1<-mov.w #0x8,r1"
+0x8F78,0xA5C2,block_write,0x0300,200,,immediate,immediate,computed,user settings (400B),"r1<-mov.w #0x300,r1; r2<-mov.w #0xc8,r2; er3<-wrapped value: mov.l #0xffaabc,er3"
+0x8F8C,0xA4E2,block_read,0x0300,200,,immediate,immediate,computed,user settings (400B),"r1<-mov.w #0x300,r1; r2<-mov.w #0xc8,r2; er3<-wrapped value: mov.l #0xffaabc,er3"
+0x8FA0,0xA5C2,block_write,0x03C8,200,,immediate,immediate,computed,user settings (400B),"r1<-mov.w #0x3c8,r1; r2<-mov.w #0xc8,r2; er3<-wrapped value: mov.l #0xffab84,er3"
+0x8FB4,0xA4E2,block_read,0x03C8,200,,immediate,immediate,computed,user settings (400B),"r1<-mov.w #0x3c8,r1; r2<-mov.w #0xc8,r2; er3<-wrapped value: mov.l #0xffab84,er3"
+0x8FD0,0xA5C2,block_write,0x042A,2,,immediate,immediate,computed,user settings (400B),"r1<-mov.w #0x42a,r1; r2<-mov.w #0x2,r2; er3<-wrapped value: mov.l #0xffabe6,er3"
+0x901C,0xA4A8,read,0x0788,1,,immediate,fixed,n/a,message bank 5x52B (CW),"r1<-mov.w #0x788,r1"
+0x902A,0xA4E2,block_read,,50,,unknown,immediate,unknown,,"r1<-unknown; r2<-mov.w #0x32,r2; er3<-unknown"
+0x9078,0xA528,write,,1,,unknown,fixed,n/a,,r1<-unknown
+0x9086,0xA5C2,block_write,,50,,computed,immediate,computed,,"r1<-0x907c: inc.w #1,r1; r2<-mov.w #0x32,r2; er3<-0x9082: mov.l @er7+,er3"
+0x90A8,0xA4E2,block_read,,50,,computed,immediate,computed,,"r1<-0x909a: add.w #0x88c,r1; r2<-mov.w #0x32,r2; er3<-wrapped value: mov.l #0xffa14e,er3"
+0x90BC,0xA4E2,block_read,0x088C,250,,immediate,immediate,computed,message bank 5x50B (RTTY/PSK),"r1<-mov.w #0x88c,r1; r2<-mov.w #0xfa,r2; er3<-wrapped value: mov.l #0xffa14e,er3"
+0x90DA,0xA5C2,block_write,,50,,computed,immediate,computed,,"r1<-0x90cc: add.w #0x88c,r1; r2<-mov.w #0x32,r2; er3<-wrapped value: mov.l #0xffa14e,er3"
+0x90EE,0xA5C2,block_write,0x088C,250,,immediate,immediate,computed,message bank 5x50B (RTTY/PSK),"r1<-mov.w #0x88c,r1; r2<-mov.w #0xfa,r2; er3<-wrapped value: mov.l #0xffa14e,er3"
+0x910C,0xA4E2,block_read,,50,,computed,immediate,computed,,"r1<-0x90fe: add.w #0x986,r1; r2<-mov.w #0x32,r2; er3<-wrapped value: mov.l #0xffa14e,er3"
+0x9120,0xA4E2,block_read,0x0986,250,,immediate,immediate,computed,message bank 5x50B (PSK/RTTY),"r1<-mov.w #0x986,r1; r2<-mov.w #0xfa,r2; er3<-wrapped value: mov.l #0xffa14e,er3"
+0x913E,0xA5C2,block_write,,50,,computed,immediate,computed,,"r1<-0x9130: add.w #0x986,r1; r2<-mov.w #0x32,r2; er3<-wrapped value: mov.l #0xffa14e,er3"
+0x9152,0xA5C2,block_write,0x0986,250,,immediate,immediate,computed,message bank 5x50B (PSK/RTTY),"r1<-mov.w #0x986,r1; r2<-mov.w #0xfa,r2; er3<-wrapped value: mov.l #0xffa14e,er3"
+0x9166,0xA5C2,block_write,0x0300,2,,immediate,immediate,computed,user settings (400B),"r1<-mov.w #0x300,r1; r2<-mov.w #0x2,r2; er3<-wrapped value: mov.l #0xffaabc,er3"
+0x96D0,0xA528,write,0x045E,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x45e,r1"
+0x96E0,0xA528,write,0x0464,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x464,r1"
+0x96F0,0xA528,write,0x0410,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x410,r1"
+0x97EC,0xA528,write,,1,,computed,fixed,n/a,,"r1<-0x97e4: mov.w r4,r1"
+0x97FE,0xA5C2,block_write,,4,,computed,immediate,computed,,"r1<-0x97f0: add.w #0x49,r1; r2<-mov.w #0x4,r2; er3<-wrapped value: mov.l #0xff20b6,er3"
+0x99C8,0xA528,write,,1,,computed,fixed,n/a,,"r1<-0x99c6: add.w r4,r1"
+0x9D6A,0xA5C2,block_write,,90,,computed,immediate,computed,,"r1<-0x9d5e: mov.w r4,r1; r2<-mov.w #0x5a,r2; er3<-wrapped value: mov.l #0xff206c,er3"
+0x9D88,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter
+0x9D96,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter
+0x9DD0,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter
+0x9DE2,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter
+0x9E04,0xA5C2,block_write,0x277E,2,,immediate,immediate,computed,band-stack control,"r1<-mov.w #0x277e,r1; r2<-mov.w #0x2,r2; er3<-wrapped value: mov.l #0xffac4c,er3"
+0x9E14,0xA528,write,0x2780,1,,immediate,fixed,n/a,band-stack control,"r1<-mov.w #0x2780,r1"
+0x9E28,0xA5C2,block_write,0x2781,10,,immediate,immediate,computed,band-stack control,"r1<-mov.w #0x2781,r1; r2<-mov.w #0xa,r2; er3<-wrapped value: mov.l #0xffac4f,er3"
+0x9E4E,0xA528,write,,1,,unknown,fixed,n/a,,r1<-unknown
+0x9E5C,0xA528,write,,1,,unknown,fixed,n/a,,r1<-unknown
+0x9E6C,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter
+0x9E7C,0xA528,write,0x2C77,1,,immediate,fixed,n/a,memory/band control 34B (2+16+16),"r1<-mov.w #0x2c77,r1"
+0x9E8C,0xA528,write,0x2C78,1,,immediate,fixed,n/a,memory/band control 34B (2+16+16),"r1<-mov.w #0x2c78,r1"
+0x9EC4,0xA528,write,,1,,unknown,fixed,n/a,,r1<-unknown
+0x9ED8,0xA528,write,,1,,unknown,fixed,n/a,,r1<-unknown
+0x9EEE,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter
+0x9EFE,0xA528,write,0x2C77,1,,immediate,fixed,n/a,memory/band control 34B (2+16+16),"r1<-mov.w #0x2c77,r1"
+0x9F0E,0xA528,write,0x2C78,1,,immediate,fixed,n/a,memory/band control 34B (2+16+16),"r1<-mov.w #0x2c78,r1"
+0x9FDC,0xA528,write,0x2C78,1,,immediate,fixed,n/a,memory/band control 34B (2+16+16),"r1<-mov.w #0x2c78,r1"
+0x9FF0,0xA4A8,read,,1,,computed,fixed,n/a,,"r1<-0x9fee: add.w r0,r1"
+0xA244,0xA4A8,read,0x2BC3,1,,immediate,fixed,n/a,VFO-A current state 90B,"r1<-mov.w #0x2bc3,r1"
+0xA25C,0xA4E2,block_read,0x2C0D,4,,immediate,immediate,computed,VFO-A current state 90B,"r1<-mov.w #0x2c0d,r1; r2<-mov.w #0x4,r2; er3<-wrapped value: mov.l #0xff20b6,er3"
+0xA266,0xA4A8,read,0x2C1D,1,,immediate,fixed,n/a,VFO-B current state 90B,"r1<-mov.w #0x2c1d,r1"
+0xA27E,0xA4E2,block_read,0x2C67,4,,immediate,immediate,computed,VFO-B current state 90B,"r1<-mov.w #0x2c67,r1; r2<-mov.w #0x4,r2; er3<-wrapped value: mov.l #0xff20b6,er3"
+0xA2B2,0xA4E2,block_read,,90,,computed,immediate,computed,,"r1<-0xa2a6: add.w r0,r1; r2<-mov.w #0x5a,r2; er3<-wrapped value: mov.l #0xff206c,er3"
+0xA340,0xA4E2,block_read,,90,,computed,immediate,computed,,"r1<-0xa334: add.w r0,r1; r2<-mov.w #0x5a,r2; er3<-wrapped value: mov.l #0xff217a,er3"
+0xA360,0xA5C2,block_write,,90,,computed,immediate,computed,,"r1<-0xa354: add.w r0,r1; r2<-mov.w #0x5a,r2; er3<-wrapped value: mov.l #0xff217a,er3"
+0xA42A,0xA4E2,block_read,,4,,computed,immediate,computed,,"r1<-0xa41e: add.w r0,r1; r2<-mov.w #0x4,r2; er3<-wrapped value: mov.l #0xff230c,er3"
+0xDC7E,0xA5C2,block_write,0x02F0,5,,immediate,immediate,computed,factory / destination params,"r1<-mov.w #0x2f0,r1; r2<-mov.w #0x5,r2; er3<-wrapped value: mov.l #0xff9886,er3"
+0x11792,0xA5C2,block_write,0x0484,12,,immediate,immediate,computed,user settings (400B),"r1<-mov.w #0x484,r1; r2<-mov.w #0xc,r2; er3<-wrapped value: mov.l #0xffac40,er3"
+0x11AC8,0xA528,write,,1,,computed,fixed,n/a,,"r1<-0x11ac4: add.w #0x31e,r1"
+0x13762,0xA528,write,0x031A,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x31a,r1"
+0x158DC,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter
+0x159C2,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter
+0x15A72,0xA528,write,0x0466,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x466,r1"
+0x15B22,0xA528,write,,1,,computed,fixed,n/a,,"r1<-0x15b20: mov.w r2,r1"
+0x15CAC,0xA528,write,0x045E,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x45e,r1"
+0x15EA0,0xA528,write,0x034B,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x34b,r1"
+0x15ED6,0xA528,write,0x0316,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x316,r1"
+0x15F08,0xA528,write,0x0317,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x317,r1"
+0x195F2,0xA528,write,0x0414,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x414,r1"
+0x19646,0xA528,write,0x0414,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x414,r1"
+0x21884,0xA4A8,read,0x0414,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x414,r1"
+0x22216,0xA528,write,0x0009,1,,immediate,fixed,n/a,settings version,"r1<-mov.w #0x9,r1"
+0x22284,0xA4E2,block_read,,256,,computed,immediate,computed,,"r1<-0x2227a: add.w #0x300,r1; r2<-mov.w #0x100,r2; er3<-wrapped value: mov.l #0xffa384,er3"
+0x222C8,0xA5C2,block_write,,256,,computed,immediate,computed,,"r1<-0x222be: add.w #0x300,r1; r2<-mov.w #0x100,r2; er3<-wrapped value: mov.l #0xffa27b,er3"
+0x25B44,0xA5C2,block_write,0x2C77,10564,,immediate,immediate,computed,memory/band control 34B (2+16+16),"r1<-mov.w #0x2c77,r1; r2<-mov.w #0x2944,r2; er3<-wrapped value: mov.l #0xff36e9,er3"
+0x27F80,0xA5C2,block_write,0x02F0,5,,immediate,immediate,computed,factory / destination params,"r1<-mov.w #0x2f0,r1; r2<-mov.w #0x5,r2; er3<-wrapped value: mov.l #0xff9886,er3"
+0x28034,0xA4E2,block_read,0x02F0,5,,immediate,immediate,computed,factory / destination params,"r1<-mov.w #0x2f0,r1; r2<-mov.w #0x5,r2; er3<-wrapped value: mov.l #0xffa934,er3"
+0x2842A,0xA528,write,,1,,computed,fixed,n/a,,"r1<-0x28428: mov.w r2,r1"
+0x28E8E,0xA528,write,0x0316,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x316,r1"
+0x28E96,0xA528,write,0x0317,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x317,r1"
+0x28E9E,0xA528,write,0x03EF,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x3ef,r1"
+0x2A08A,0xA528,write,0x0318,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x318,r1"
+0x2B1EE,0xA528,write,0x034B,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x34b,r1"
+0x2B82C,0xA528,write,,1,,unknown,fixed,n/a,,r1<-unknown
+0x2C924,0xA528,write,,1,,parameter,fixed,n/a,,r1<-function parameter
+0x2C9C4,0xA528,write,0x036F,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x36f,r1"
+0x2CDAE,0xA528,write,0x0466,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x466,r1"
+0x2CDC0,0xA528,write,0x0412,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x412,r1"
+0x2D054,0xA528,write,,1,,unknown,fixed,n/a,,r1<-unknown
+0x2D05E,0xA528,write,,1,,unknown,fixed,n/a,,r1<-unknown
+0x2D0AE,0xA4A8,read,,1,,unknown,fixed,n/a,,r1<-unknown
+0x2D0B8,0xA4A8,read,,1,,unknown,fixed,n/a,,r1<-unknown
+0x2D94A,0xA4E2,block_read,0x2C77,10564,,immediate,immediate,computed,memory/band control 34B (2+16+16),"r1<-mov.w #0x2c77,r1; r2<-mov.w #0x2944,r2; er3<-0x2d938: mov.b r0l,@er3+"
+0x2D9CA,0xA4A8,read,0x03FD,1,,immediate,fixed,n/a,user settings (400B),"r1<-mov.w #0x3fd,r1"
+0x2EA0C,0xA5C2,block_write,0x032E,4,,immediate,immediate,computed,user settings (400B),"r1<-mov.w #0x32e,r1; r2<-mov.w #0x4,r2; er3<-wrapped value: mov.l #0xffaaea,er3"
+0x3091A,0xA5C2,block_write,,4,,computed,immediate,parameter,,"r1<-0x30916: add.w #0xa82,r1; r2<-mov.w #0x4,r2; er3<-function parameter"
+0x3093C,0xA528,write,0x0A81,1,,immediate,fixed,n/a,circular log 100x4B,"r1<-mov.w #0xa81,r1"
+0x3095A,0xA528,write,0x0A80,1,,immediate,fixed,n/a,circular log 100x4B,"r1<-mov.w #0xa80,r1"
+0x309B6,0xA5C2,block_write,0x0A80,402,,immediate,immediate,computed,circular log 100x4B,"r1<-mov.w #0xa80,r1; r2<-mov.w #0x192,r2; er3<-wrapped value: mov.l #0xff96ee,er3"
+0x318EE,0xA5C2,block_write,,,,unknown,unknown,computed,,"r1<-unknown; r2<-unknown; er3<-wrapped value: mov.l #0xff2498,er3"
+0x319B8,0xA4A8,read,,1,,parameter,fixed,n/a,,r1<-function parameter
+0x319D0,0xA4E2,block_read,,,,computed,computed,computed,,"r1<-0x319c8: inc.w #1,r1; r2<-0x319c6: extu.w r2; er3<-wrapped value: mov.l #0xff2498,er3"
+0x31A0A,0xA4A8,read,,1,,parameter,fixed,n/a,,r1<-function parameter
+0x31A14,0xA4A8,read,,1,,parameter,fixed,n/a,,r1<-function parameter (+0x1)
+0x31A38,0xA4E2,block_read,,,,computed,computed,computed,,"r1<-0x31a30: mov.w @er7+,r1; r2<-0x31a2e: inc.w #1,r2; er3<-wrapped value: mov.l #0xff2498,er3"
+0x3777E,0xA4E2,block_read,,50,,computed,immediate,computed,,"r1<-0x37778: inc.w #2,r1; r2<-mov.w #0x32,r2; er3<-0x37764: mov.b #0x0,@er3+"
+0x377CA,0xA4E2,block_read,,50,,computed,immediate,computed,,"r1<-0x377c4: add.w r0,r1; r2<-mov.w #0x32,r2; er3<-0x377b6: mov.b #0x0,@er3+"
+0x377E6,0xA4A8,read,,1,,computed,fixed,n/a,,"r1<-0x377e4: add.w r0,r1"
