@@ -29,9 +29,6 @@ def frame(cmd, addr, data=b""):
         raise CatError(f"FRAM 地址越界：0x{addr:04X}")
     body = cmd + addr.to_bytes(2, "big") + data
     checksum = sum(body) & 0xFF
-    # SP 是二进制子协议；0x3B 会与 ASCII 帧结束符 ';' 冲突。
-    if 0x3B in body[2:] or checksum == 0x3B:
-        raise CatError("SP 帧参数或校验和包含 0x3B (';')，为避免帧截断已拒绝发送")
     return body + bytes((checksum,)) + b";"
 
 

@@ -166,28 +166,7 @@ def frame(cmd, addr, data=b""):
         raise CatError(f"FRAM 地址越界：0x{addr:04X}")
     body = cmd + addr.to_bytes(2, "big") + data
     checksum = sum(body) & 0xFF
-    # SP 是二进制子协议；0x3B 会与 ASCII 帧结束符 ';' 冲突。
-    if 0x3B in body[2:] or checksum == 0x3B:
-        raise CatError("SP 帧参数或校验和包含 0x3B (';')，为避免帧截断已拒绝发送")
     return body + bytes((checksum,)) + b";"
-
-
-def safe_write_pair(cat, addr, data):
-    """优先写 addr；若帧里含 0x3B，退回写 addr+1（保留其后一字节）。
-
-    返回 (实际写入地址, 期望回读的 2 字节)。
-    """
-    try:
-        cat.write_pair(addr, data)
-        return addr, data
-    except CatError as e:
-        if "0x3B" not in str(e):
-            raise
-        alt = addr + 1
-        old_alt = cat.read(alt)          # (FRAM[alt], FRAM[alt+1])
-        alt_data = bytes((data[1], old_alt[1]))
-        cat.write_pair(alt, alt_data)
-        return alt, alt_data
 
 
 def main():
@@ -287,11 +266,12 @@ def main():
             print("预览模式：确认无误后添加 --apply。")
             return 0
 
-        addr, expected = safe_write_pair(cat, CONFIG, bytes((old[0], new_byte)))
-        back = cat.read(addr)
+        expected = bytes((old[0], new_byte))
+        cat.write_pair(CONFIG, expected)
+        back = cat.read(CONFIG)
         if back != expected:
             raise CatError(f"写后回读不一致：{back.hex(' ')}")
-        print(f"写入 0x{addr:04X} 并回读验证成功；请整机断电重启后确认。")
+        print(f"写入 0x{CONFIG:04X} 并回读验证成功；请整机断电重启后确认。")
         return 0
     finally:
         cat.close()

@@ -42,7 +42,7 @@
 * 帧 = <2 字母命令><参数...>';'，ASCII 命令以 ';'(0x3B) 结束。
 * 大小写：以 "SP"/"EM" 开头的帧不做大写化(所以 SPW≠SPw)。
 * SP 是二进制子协议：SP 之后是原始字节，校验 = ('S'+'P'+其后所有字节) & 0xFF，
-  作为单个原始字节发送；参数里应避免出现 0x3B。
+  作为单个原始字节发送。
 * 成功 ACK = 'A;'，失败 = '?;'。部分命令成功时不回包(EO/EK/KT写/PE写/FD写/JP写)。
 
 安全提示
@@ -319,17 +319,10 @@ class CatTimeout(CatError):
 
 # ------------------------------------------------------------------ 帧构造
 def sp_frame(body: bytes) -> bytes:
-    """构造 SP 二进制帧：body 不含 'S''P'，函数自动加校验与 ';'。
-
-    0x3B 是 ASCII 帧结束符 ';'，出现在二进制参数/校验中会被设备截断，
-    因此这里直接拒绝，避免发出半帧。
-    """
+    """构造 SP 二进制帧：body 不含 'S''P'，函数自动加校验与 ';'。"""
     head = b"SP" + bytes(body)
     chk = sum(head) & 0xFF
-    frame = head + bytes([chk]) + b";"
-    if 0x3B in frame[:-1]:
-        raise CatError("SP 帧参数或校验包含 0x3B (';')，已拒绝发送；请换地址/值")
-    return frame
+    return head + bytes([chk]) + b";"
 
 
 def hexs(b: bytes, sep: str = " ") -> str:
@@ -686,8 +679,6 @@ class HiddenCat:
             raise ValueError("文本为空")
         if any(ord(ch) > 0x7F for ch in text):
             raise ValueError("KT 文本只接受 ASCII 字符")
-        if ";" in text:
-            raise ValueError("KT 文本不能包含 ';'（0x3B 会被当作帧尾）")
         text = text.upper()  # CAT 解析器默认把字母大写化
         if len(text) > 30:
             raise ValueError("文本超过 30 字符上限")
@@ -831,16 +822,10 @@ class HiddenCat:
         return r[5], r[6], r
 
     def write_config_pair(self, b0: int, b1: int) -> bytes:
-        """写回配置对；若帧中含 0x3B，自动退到 0x0007+0x0008 并保留 FRAM[8]。"""
+        """写回配置对。"""
         if not (0 <= b0 <= 0xFF and 0 <= b1 <= 0xFF):
             raise ValueError("配置字节必须在 0x00–0xFF")
-        try:
-            return self.spw(CONFIG_ADDR, b0, b1)
-        except CatError as exc:
-            if "0x3B" not in str(exc):
-                raise
-            old = self.spr(CONFIG_ADDR + 1)
-            return self.spw(CONFIG_ADDR + 1, b1, old[6])
+        return self.spw(CONFIG_ADDR, b0, b1)
 
     def write_fram(self, start: int, data: bytes, progress=None,
                    cancel=None, verify=False) -> int:
@@ -1261,7 +1246,6 @@ def launch_gui():
                 "· SP / PE / JP 会写校准或启动参数，可能改变发射指标或导致无法开机。\n"
                 "· ZZ 会立即复位整机。\n"
                 "· 写操作前请先备份 FRAM[0x0000–0x0490]，并确保能重刷固件。\n"
-                "· SP 是二进制子协议：参数/校验为原始字节，且不能含 0x3B(';')。\n"
                 "· 进入服务模式用 ZZ<ZZ前缀>000;（FTDX10=ZZPE001000;，FT-891=ZZPE089100;）；\n"
                 "  退出用 RESET 菜单或整机断电。ZZ<前缀>01（FTDX10: ZZPE001001;）是 ALL RESET，不是普通退出。\n"
                 "· 本工具为静态逆向结论，未在真机验证；风险自负。")

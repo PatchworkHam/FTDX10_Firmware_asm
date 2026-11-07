@@ -23,7 +23,7 @@ power_cat_optimized.py — Yaesu FTDX10 功率参数 CAT 读写工具（仅适�
    操作不会把值夹回去，也不会因越界被拒绝。
 3. 不检查 FRAM[9] 设置版本：该字节只读取/展示，不参与兼容性判断，也不写入。
    当前镜像 0x3F650 为 0x00；真机实际值尚未确认，本工具不把它当作期望值。
-4. 默认 dry-run；`--apply` 才写；写后回读校验；自动避开 0x3B 帧尾陷阱。
+4. 默认 dry-run；`--apply` 才写；写后回读校验。
 
 用法（详见同目录 power_cat_使用说明.md）
 ------------------------------------------------------------
@@ -251,11 +251,6 @@ def sp_frame(body: bytes) -> bytes:
     return head + bytes([sum(head) & 0xFF]) + b";"
 
 
-def frame_has_semicolon(frame: bytes) -> bool:
-    """帧内（不含结尾 ';'）是否出现 0x3B。"""
-    return 0x3B in frame[:-1]
-
-
 def parse_spr_reply(r: bytes, addr: int) -> bytes:
     """校验 SPR 回包，返回 bytes([d0,d1])。
 
@@ -296,8 +291,6 @@ class Cat:
 
     # -- 低层 --------------------------------------------------------------
     def _raw(self, frame: bytes, expect: int = 0, wait: float = 0.12) -> bytes:
-        if frame_has_semicolon(frame):
-            raise CatError("帧内出现 0x3B，会被设备当成帧尾：" + frame.hex(" "))
         self.ser.reset_input_buffer()
         self.ser.write(frame)
         time.sleep(wait)
@@ -333,62 +326,23 @@ class Cat:
         return bytes(out[:n])
 
     # -- 高层：任意长度读-改-写 -------------------------------------------
-    @staticmethod
-    def _layouts(addr: int, n: int):
-        """生成 (base, 总长) 候选：尽量少改动相邻字节，用于避开 0x3B。"""
-        out = []
-        for lead in (0, 1, 2):
-            for trail in (0, 1, 2):
-                total = n + lead + trail
-                if total % 2:
-                    continue
-                base = addr - lead
-                if base < 0 or base + total - 1 > 0x7FFF:
-                    continue
-                out.append((base, total, lead, trail))
-        out.sort(key=lambda x: (x[2] + x[3], x[0] != addr))
-        return out
-
-    def plan_write(self, addr: int, data: bytes):
-        """返回可行写方案（已读回原值并组装好 2 字节帧）。
-
-        按“改动相邻字节最少”的顺序尝试；一旦找到不含 0x3B 的方案就立即返回，
-        避免无谓的串口读。只有全部方案都冲突时才把所有方案返回给上层报错。
-        """
+    def apply_write(self, addr: int, data: bytes) -> None:
+        """把 bytes 写入 FRAM；奇数长度时读取后一字节补齐成对写。"""
         n = len(data)
         if n == 0:
-            return []
-        if addr + n - 1 > 0x7FFF:
+            return
+        if addr < 0 or addr + n - 1 > 0x7FFF:
             raise CatError("超出 FRAM 地址空间")
-        plans = []
-        for base, total, lead, _trail in self._layouts(addr, n):
-            cur = bytearray(self.read_bytes(base, total))
-            cur[lead:lead + n] = data
-            pairs = [(base + i, [cur[i], cur[i + 1]])
-                     for i in range(0, total, 2)]
-            bad = [hex(p[0]) for p in pairs
-                   if frame_has_semicolon(sp_frame(
-                       b"W" + p[0].to_bytes(2, "big") + bytes(p[1])))]
-            plan = {"base": base, "total": total, "lead": lead,
-                    "pairs": pairs, "bad": bad}
-            plans.append(plan)
-            if not bad:
-                return [plan]
-        return plans
-
-    def apply_write(self, addr: int, data: bytes) -> None:
-        plans = self.plan_write(addr, data)
-        good = [p for p in plans if not p["bad"]]
-        if not good:
-            raise CatError("无法避开 0x3B：请改用面板菜单设置该项")
-        plan = good[0]
+        buf = bytearray(data)
+        if n % 2:
+            if addr + n > 0x7FFF:
+                raise CatError("奇数长度且末尾为 0x7FFF：无法成对写入")
+            buf += self.read_bytes(addr + n, 1)
         if not self.quiet:
-            print(f"  [写] FRAM[0x{addr:04X}..0x{addr + len(data) - 1:04X}] "
-                  f"{len(data)} 字节（起始 0x{plan['base']:04X}，"
-                  f"{len(plan['pairs'])} 帧）")
-        for base, d in plan["pairs"]:
-            self.spw_pair(base, d[0], d[1])
-        back = self.read_bytes(addr, len(data))
+            print(f"  [写] FRAM[0x{addr:04X}..0x{addr + n - 1:04X}] {n} 字节")
+        for i in range(0, len(buf), 2):
+            self.spw_pair(addr + i, buf[i], buf[i + 1])
+        back = self.read_bytes(addr, n)
         if back != data:
             raise CatError(
                 f"回读校验失败：写入 {data.hex(' ')}，回读 {back.hex(' ')}")
